@@ -2,21 +2,21 @@ import { devices } from '@playwright/test';
 export default {
   testDir: './e2e/tests',
   projects: [
-    // {
-    //   name: 'Chromium',
-    //   use: { ...devices['Desktop Chrome'] },
-    // },
     {
-      name: 'Firefox',
-      use: { ...devices['Desktop Firefox'] },
+      name: 'Chromium',
+      use: { ...devices['Desktop Chrome'] },
     },
+    // {
+    //   name: 'Firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
     // {
     //   name: 'WebKit',
     //   use: { ...devices['Desktop Safari'] },
     // },
   ],
   retries: 1,
-  reporter: 'html',
+  reporter: [['html', { open: 'on-failure' }]],
   use: {
     baseURL: 'https://www.adidas.com/',
     screenshot: 'off',
